@@ -124,17 +124,23 @@ Characters must be URI encoded properly.
 == NEW BALLS-0021 VARIABLES ==
 
 RBF Preference
+
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?rbf=off
+
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?rbf=on
  
 RBF Required
+
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-rbf=off
+
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-rbf=on
  
 Lightning Invoice Fallback 
+
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?lighting=[invoice]
 
 Bitcoin Invoice Fallback
+
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?use-lighting=[invoice]
 
 
