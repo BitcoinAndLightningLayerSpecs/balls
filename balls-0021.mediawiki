@@ -134,7 +134,7 @@ RBF Required
 Lightning Invoice Fallback 
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?lighting=[invoice]
 
-Bitcoin Invoice Fallback 
+Bitcoin Invoice Fallback
  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?use-lighting=[invoice]
 
 
