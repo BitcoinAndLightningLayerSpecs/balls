@@ -5,7 +5,7 @@ Type: Standards Track
 Created: Apr 15, 2024
 Status: Draft
 
-**Abstract**
+*Abstract*
 
 This BIP introduces a utility-optimized strategy for Bitcoin mempool policy with new transaction signaling mechanisms, including Do-Not-Replace (DNR) and Replace-by-Fee (RBF), to enhance control over transaction handling and improve the network's economic efficiency.
 
