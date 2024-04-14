@@ -1,0 +1,91 @@
+BIP: XXXX \
+Title: User-Defined Transaction Flags Policy & Strategy \
+Author: John Carvalho \
+Type: Standards Track \
+Created: Apr 15, 2024 \
+Status: Draft
+
+### **Abstract**
+
+This BIP introduces a utility-optimized strategy for Bitcoin mempool policy with new transaction signaling mechanisms, including Do-Not-Replace (DNR) and Replace-by-Fee (RBF), to enhance control over transaction handling and improve the network's economic efficiency.
+
+### **Motivation**
+
+Enhancing user autonomy and network efficiency through precise, user-defined transaction signals that integrate seamlessly with Bitcoin's decentralized nature and existing economic models.
+
+### **Specification**
+
+#### Transaction Signals
+
+* **Do-Not-Replace (DNR)**: Ensures transactions are not replaced once broadcast. This flag is encoded using a specific bit in the transaction’s version field, similar to RBF, but with inverse logic.
+* **Replace-by-Fee (RBF): **Allows the sender to signal that the transaction may be replaced by another transaction with a higher fee. This mechanism is used to increase the likelihood of a transaction being picked up by miners in conditions of high network congestion, ensuring timely processing.
+
+#### Encoding
+
+The new flag signal, DNR, could be encoded similarly to existing RBF flags, with complementary mempool handling and conflict-resolution logic for default local enforcement.
+
+### **Rationale**
+
+Addresses the need for predictable transaction handling while respecting the decentralized, incentive-driven nature of network participants.
+
+_Note: This proposal only discusses subjective, arbitrary mempool policy and handling. It is assumed that any local policy that enforces preferred hardware limits is out of scope and remains separately necessary._
+
+#### Strategic Options for Mempool Evolution
+
+There are three strategic options for evolving the Bitcoin mempool management, where only one should be optimized:
+
+1. **User-defined (The ideal, optimistic option): **This approach involves creating and default-obeying various transaction flags like RBF and DNR to facilitate specific goals of transactors. The primary tradeoff is that these flags are suggestions and can be overridden by miners, which means they are not enforceable but serve as strong hints to improve transaction predictability and network efficiency.
+
+2. **Node-defined (The chaotic, centralizing option): **This strategy would encourage third-party mempool providers to implement their subjective preferences on transaction facilitation. The significant tradeoff here is the potential fracturing of the mempool and private, mining-pool-centric inclusion requirements, which could lead to increased centralization and censorship.
+
+3. **Miner-defined (The rational, pessimistic option): **The final strategy involves removing all policies and flags, allowing miners to decide based on transaction fees or other out-of-band terms. This approach simplifies the network at the cost of significantly reducing the utility for users who may need special handling for their transactions.
+
+#### Arguments for User-Definition
+
+Option 1 is favored here because it provides a balanced approach that enhances user experience and network functionality without overly complicating the Bitcoin protocol or risking centralization. By standardizing flags that indicate user preferences, we can achieve greater harmony and utility within the Bitcoin network, supporting diverse user needs while maintaining decentralization. 
+
+More importantly, we may be able to prevent mempool fragmentation and privatization to miners and pools for direct transaction inclusion by intentionally supporting flags that better compete and match transaction use cases within the open mempool network instead of censoring them arbitrarily.
+
+#### Economic Implications
+
+The introduction of these signals could influence transaction fee markets and network congestion patterns:
+
+* DNR potentially improves next-block fee competition and improves network throughput by providing clearer signals about transaction permanence and relevance.
+* RBF allows for dynamic fee adjustments that can enhance the certainty of transaction confirmations during peak times, benefiting users who need timely processing.
+
+### **Do-Not-Replace (DNR) Use Cases**
+
+DNR is valuable in scenarios where transaction finality is crucial upon submission, without the risk of later alterations due to increased fees. Here are some specific use cases:
+
+* Point-of-Sale Transactions:
+    * Example: Retailers or service providers accepting Bitcoin in a face-to-face setting need transactions to be final immediately to prevent fraud.
+    * Usage: By using the DNR flag, merchants can ensure that once a transaction is broadcast, it cannot be replaced, thereby securing the payment process at the point of sale.
+* Wage Payments:
+    * Example: Employers paying salaries in Bitcoin require certainty that the transaction amounts cannot be altered once sent.
+    * Usage: DNR provides employers the confidence to execute payroll transactions knowing that the payments cannot be replaced or canceled, ensuring employees receive the exact intended amounts.
+* Automated Payments for Services:
+    * Example: Subscription services where automated payments are scheduled and should not be subject to change once initiated.
+    * Usage: DNR can be applied to ensure that automated recurring payments are processed without the risk of being replaced, thus simplifying financial planning and contract enforcement.
+
+### **Replace-by-Fee (RBF) Use Cases**
+
+RBF is essential for transactions where timing and confirmation speed are more critical than the immediacy of finality. Here are applicable scenarios:
+
+* High-Frequency Trading:
+    * Example: Traders on cryptocurrency exchanges who need to rapidly adjust their positions based on market conditions.
+    * Usage: RBF allows traders to increase the fee on a transaction if it's not getting confirmed quickly enough, enabling them to ensure timely executions in response to market movements.
+* Emergency Service Payments:
+    * Example: Payments for time-sensitive services, such as premium fast delivery or emergency technical services.
+    * Usage: When quick service delivery is critical, RBF enables the sender to increase the transaction fee to speed up the confirmation process, ensuring that the transaction is prioritized by miners.
+* Bidding in Auctions:
+    * Example: Participants in online auctions who need to ensure their payments go through before the auction closes.
+    * Usage: Auction participants can use RBF to adjust their transaction fees to outpace other transactions in times of network congestion, securing their winning bids.
+* Dynamic Fee Management for Wallets:
+    * Example: Users sending non-urgent transactions who want to minimize fees but are willing to increase them if network conditions change.
+    * Usage: RBF provides flexibility, allowing users to start with a lower fee and only increase it if the transaction confirmation is delayed, optimizing their transaction fee expenditures.
+
+### Adoption and Transition Strategy & Requirements
+
+<span style="text-decoration:underline;">It is implicit, until now, that within this strategy is a requirement for Core and other implementations to abandon strategies within Option 2, by specifically removing and rejecting policy tools like **mempoolfullrbf**, or other attempts to overrule, filter, or otherwise filter and hamper the propagation of valid, non-destructive transactions.</span>
+
+This proposal is presented to the community for feedback, focusing on gathering input from wallet developers, miners, and node operators to ensure broad support and understanding of the benefits and implications of these new transaction signals.
