@@ -1,7 +1,7 @@
     BIP: XXX  
     Layer: Informational  
     Title: Redefinition of the Bitcoin Unit to the Base Denomination  
-    Author: [Your Name] <your.email@example.com>  
+    Author: [John Carvalho] <bitcoinerrorlog@gmail.com>  
     Comments-Summary: No comments yet.  
     Comments-URI: https://github.com/bitcoin/bips/wiki/Comments-URI  
     Status: Draft  
