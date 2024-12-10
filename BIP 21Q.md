@@ -46,7 +46,7 @@ As Bitcoin grows in adoption, ensuring that users understand its integral nature
    Removing decimals simplifies mental arithmetic. Users handle values as integers, reducing cognitive load and potential for error.
 
 2. **Protocol Alignment:**
-   The Bitcoin protocol inherently tracks value as integral units. Representing values directly as these integers eliminates the artificial complexity of decimal formatting and corrects misconceptions that Bitcoin itself is "divisible" like a decimal currency. Instead, Bitcoin is accounted for in discrete units, similar to counting individual items.
+   The Bitcoin protocol inherently tracks value as integral units. Representing values directly as these integers eliminates the artificial complexity of decimal formatting and corrects misconceptions that Bitcoin itself is "divisible" like a decimal currency.
 
 3. **Educational Clarity:**
    New users often misunderstand Bitcoin’s nature due to the decimal-centric display. The new standard aligns user perception with the fundamental design of Bitcoin, making it clearer that the system counts indivisible units and that the decimal point was a human-imposed abstraction.
@@ -67,7 +67,7 @@ No consensus-level rules are changed, and existing on-chain data remains intact.
 # Security Considerations
 
 **Potential for Confusion:**  
-Some users, initially expecting decimals, might misinterpret integer values as drastically larger amounts. However, the magnitude of difference between old and new displays makes genuine confusion resulting in significant losses unlikely. For example, misunderstanding `10000 BTC` under the new system as equal to `10000 BTC` under the legacy fractional system is implausible, given the well-known, historically high value of a single "legacy BTC."
+Some users, initially expecting decimals, might misinterpret integer values as drastically larger amounts. However, the magnitude of difference between old and new displays makes genuine confusion resulting in significant losses unlikely. It’s implausible that users will believe they are sending "1000 legacy BTC" when they are effectively sending a fraction of a dollar in the new system, given the well-known value ranges and historical context of Bitcoin.
 
 **Mitigation Strategies:**
 1. **Gradual Transition:**
@@ -82,13 +82,13 @@ Some users, initially expecting decimals, might misinterpret integer values as d
 4. **In-App Warnings:**
    Applications can prompt users for confirmation if entered amounts deviate significantly from historical norms.
 
-The integer-based display reduces long-term confusion, as users become accustomed to the true nature of Bitcoin’s accounting. Over time, this clarity enhances security by reducing the risk of user errors due to misunderstanding.
+As users adapt, confusion will diminish. The integer-based display reduces long-term misunderstandings and fosters more accurate user perceptions.
 
 # Reference Implementation
 
 - **Wallets:**  
-  Display all amounts as integers. Optionally maintain legacy-to-new comparison views or explanatory tooltips during transition.
-  
+  Some wallets, such as [Bitkit](https://bitkit.to/), have already adopted this integer-only display format, demonstrating that this approach can be successfully implemented without causing confusion for users. During a transitional period, wallets can maintain legacy-to-new comparison views or explanatory tooltips.
+
 - **Block Explorers:**  
   Show amounts as integers and annotate historical data to explain old fractional formats.
 
