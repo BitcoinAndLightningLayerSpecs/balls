@@ -1,11 +1,10 @@
-
-BIP: XXX
-Title: Redefinition of the Bitcoin Unit to the Base Denomination
-Authors: John Carvalho <bitcoinerrorlog@gmail.com>
-Status: Draft
-Type: Informational
-Created: 2024-12-10
-License: CC0-1.0
+BIP: XXX  
+Title: Redefinition of the Bitcoin Unit to the Base Denomination  
+Authors: John Carvalho <bitcoinerrorlog@gmail.com>  
+Status: Draft  
+Type: Informational  
+Created: 2024-12-10  
+License: CC0-1.0  
 
 # Abstract
 
