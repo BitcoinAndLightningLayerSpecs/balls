@@ -1,4 +1,4 @@
-BIP: ?
+BIP: 
 Title: Redefinition of the Bitcoin Unit to the Base Denomination
 Authors: John Carvalho <bitcoinerrorlog@gmail.com>
 Status: Draft
