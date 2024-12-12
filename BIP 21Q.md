@@ -57,7 +57,7 @@ Adopting the smallest unit as the primary measure ensures a consistent standard 
 
 # Addressing Alternative Approaches
 
-## Refuting the "Bits" Proposal (BIP 176)
+## Refuting the "Bits" Proposal ([BIP 176](https://github.com/bitcoin/bips/blob/master/bip-0176.mediawiki))
 
 An alternative suggestion (BIP 176) proposes using "bits" to represent one-millionth of a bitcoin (100 satoshis). While this reduces the number of decimal places in certain contexts, it fails to fully address the core issues our BIP aims to solve:
 
