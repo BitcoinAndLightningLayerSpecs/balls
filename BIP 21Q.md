@@ -12,7 +12,7 @@ This BIP proposes redefining the commonly recognized "bitcoin" unit so that what
 
 # Motivation
 
-The current convention defines one Bitcoin as 100,000,000 of the smallest indivisible units. This representation requires dealing with eight decimal places, which can be confusing and foster the misconception that bitcoin is inherently decimal-based. In reality, Bitcoin’s ledger represents values as integers of a smallest unit, and the decimal point is merely a human-imposed abstraction.
+The current convention defines one bitcoin as 100,000,000 of the smallest indivisible units. This representation requires dealing with eight decimal places, which can be confusing and foster the misconception that bitcoin is inherently decimal-based. In reality, Bitcoin’s ledger represents values as integers of a smallest unit, and the decimal point is merely a human-imposed abstraction.
 
 By redefining the smallest unit as "one bitcoin," this BIP aligns user perception with the protocol’s true nature. It reduces cognitive overhead, ensures users understand Bitcoin as counting discrete units, and ultimately improves educational clarity and user experience.
 
@@ -28,7 +28,7 @@ By redefining the smallest unit as "one bitcoin," this BIP aligns user perceptio
 
 - The informal terms "satoshi" or "sat" are deprecated.
 - All references, interfaces, and documentation SHOULD refer to the base integer unit simply as "bitcoin."
-- The currency code "BTC" is unaffected by these changed, and continues to mean 100,000,000 base units.
+- The currency code "BTC" is unaffected by these changes, and continues to mean 100,000,000 base units.
 
 **Display and Formatting:**
 
@@ -37,21 +37,21 @@ Applications have the choice between using the BTC currency code or bitcoin ₿,
 Example 1:
 
   - Old display: `0.00010000 Bitcoin`
-  - New display: `₿10000` or `1000 bitcoins`
+  - New display: `₿10,000` or `10,000 bitcoins` or `0.00010000 BTC`
 
 Example 2:
 
   - Old display: `10.23486 Bitcoin`
-  - New display: `₿1,023,486,000` or `10.23486 BTC`
+  - New display: `₿1,023,486,000` or `1,023,486,000 bitcoins` or `10.23486 BTC`
 
 Example 3:
   - Old display: `0.345 BTC`
-  - New display: No changes required or `₿34,500,000`
+  - New display: No changes required or `₿34,500,000` or `34,500,000 bitcoins`
 
 **Conversion:**
 
 - Ledger and consensus rules remain unchanged.
-- `BTC` as a denomination remains unchanged (1 BTC = 100,000,000 base units)
+- `BTC` as a currency code remains unchanged (1 BTC = 100,000,000 base units)
 - Implementations adopting this standard MUST multiply previously displayed Bitcoin amounts by 100,000,000 to determine the new integer representation.
 
 # Rationale
