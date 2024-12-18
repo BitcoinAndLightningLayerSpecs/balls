@@ -12,7 +12,7 @@ This BIP proposes redefining the commonly recognized "bitcoin" unit so that what
 
 # Motivation
 
-The current convention defines one BTC as 100,000,000 of the smallest indivisible units. This representation requires dealing with eight decimal places, which can be confusing and foster the misconception that bitcoin is inherently decimal-based. In reality, Bitcoin’s ledger represents values as integers of a smallest unit, and the decimal point is merely a human-imposed abstraction.
+The current convention defines one Bitcoin as 100,000,000 of the smallest indivisible units. This representation requires dealing with eight decimal places, which can be confusing and foster the misconception that bitcoin is inherently decimal-based. In reality, Bitcoin’s ledger represents values as integers of a smallest unit, and the decimal point is merely a human-imposed abstraction.
 
 By redefining the smallest unit as "one bitcoin," this BIP aligns user perception with the protocol’s true nature. It reduces cognitive overhead, ensures users understand Bitcoin as counting discrete units, and ultimately improves educational clarity and user experience.
 
@@ -21,38 +21,51 @@ By redefining the smallest unit as "one bitcoin," this BIP aligns user perceptio
 **Redefinition of the Unit:**
 
 - Internally, the smallest indivisible unit remains unchanged.
-- Historically, 1 BTC = 100,000,000 base units. Under this proposal, "1 bitcoin" equals that smallest unit.
-- What was previously referred to as "1 BTC" now corresponds to 100 million bitcoins under the new definition.
+- Historically, 1 bitcoin = 100,000,000 base units. Under this proposal, "1 bitcoin" equals that smallest unit.
+- What was previously referred to as "1 bitcoin" now corresponds to 100 million bitcoins under the new definition.
 
 **Terminology:**
 
 - The informal terms "satoshi" or "sat" are deprecated.
 - All references, interfaces, and documentation SHOULD refer to the base integer unit simply as "bitcoin."
+- The currency code "BTC" is unaffected by these changed, and continues to mean 100,000,000 base units.
 
 **Display and Formatting:**
 
-- Applications SHOULD present values as whole integers without decimals.
-- Example:
-  - Old display: `0.00010000 BTC`
-  - New display: `10000 BTC` (or `₿10000`)
+Applications have the choice between using the BTC currency code or bitcoin ₿, with 1 BTC = ₿100,000,000.
+
+Example 1:
+
+  - Old display: `0.00010000 Bitcoin`
+  - New display: `₿10000` or `1000 bitcoins`
+
+Example 2:
+
+  - Old display: `10.23486 Bitcoin`
+  - New display: `₿1,023,486,000` or `10.23486 BTC`
+
+Example 3:
+  - Old display: `0.345 BTC`
+  - New display: No changes required or `₿34,500,000`
 
 **Conversion:**
 
 - Ledger and consensus rules remain unchanged.
-- Implementations adopting this standard MUST multiply previously displayed BTC amounts by 100,000,000 to determine the new integer representation.
+- `BTC` as a denomination remains unchanged (1 BTC = 100,000,000 base units)
+- Implementations adopting this standard MUST multiply previously displayed Bitcoin amounts by 100,000,000 to determine the new integer representation.
 
 # Rationale
 
-**Usability:**  
+**Usability**
 Integer-only displays simplify mental arithmetic and reduce potential confusion or user error.
 
-**Protocol Alignment:**  
+**Protocol Alignment:**
 The Bitcoin protocol inherently counts discrete units. Removing the artificial decimal format aligns user perception with Bitcoin’s actual integral design.
 
-**Educational Clarity:**  
+**Educational Clarity:**
 Presenting integers ensures newcomers do not mistakenly assume that Bitcoin’s nature is decimal-based. It conveys Bitcoin’s true design from the start.
 
-**Future-Proofing:**  
+**Future-Proofing:**
 Adopting the smallest unit as the primary measure ensures a consistent standard that can scale smoothly as Bitcoin adoption grows.
 
 # Addressing Alternative Approaches
@@ -61,16 +74,16 @@ Adopting the smallest unit as the primary measure ensures a consistent standard 
 
 An alternative suggestion (BIP 176) proposes using "bits" to represent one-millionth of a bitcoin (100 satoshis). While this reduces the number of decimal places in certain contexts, it fails to fully address the core issues our BIP aims to solve:
 
-1. **Persistent Decimal Mindset:**  
+1. **Persistent Decimal Mindset:**
    Using "bits" still retains a layered decimal approach, requiring users to think in terms of multiple denominations (BTC and bits). This shifts complexity rather than eliminating it.
 
-2. **Inconsistent User Experience:**  
+2. **Inconsistent User Experience:**
    Users must learn to toggle between BTC for large amounts and bits for small amounts. Instead of providing a unified view of value, it fragments the user experience.
 
-3. **Incomplete Alignment with the Protocol’s Nature:**  
+3. **Incomplete Alignment with the Protocol’s Nature:**
    The "bits" proposal does not realign the displayed value with the integral nature of Bitcoin’s ledger. It continues to rely on fractional units, masking the fundamental integer-based accounting that Bitcoin employs.
 
-4. **Not Permanently Future-Proof:**  
+4. **Not Permanently Future-Proof:**
    Though "bits" may simplify certain price ranges, future circumstances could demand additional denominations or scaling adjustments. Our integral approach resolves this problem entirely by making the smallest unit the standard measure, avoiding future fragmentation.
 
 In essence, while BIP 176 attempts to simplify small amount representations, it only replaces one decimal representation with another. By redefining "bitcoin" as the smallest indivisible unit, this BIP eliminates reliance on decimal fractions and separate denominations entirely, offering a clearer, more intuitive, and ultimately more durable solution.
@@ -80,7 +93,7 @@ In essence, while BIP 176 attempts to simplify small amount representations, i
 No consensus rules are altered, and on-chain data remains unchanged. Differences arise solely in display formats:
 
 - **For Developers:**  
-  Update GUIs, APIs, and documentation to present values as integers. Remove references to fractional BTC.
+  Update GUIs, APIs, and documentation to present values as integers. Remove references to fractional Bitcoin. `BTC` units remain unchanged.
 
 - **For Users:**  
   The actual value of holdings does not change. Transitional measures, such as dual displays or explanatory tooltips, can ease the adjustment period.
@@ -101,9 +114,10 @@ Some wallets, such as Bitkit, have successfully adopted integer-only displays, d
 
 # Test Vectors
 
-- Old: `1.00000000 BTC` → New: `100000000 BTC` (or `₿100000000`)
-- Old: `0.00010000 BTC` → New: `10000 BTC` (or `₿10000`)
-- Old: `0.00500000 BTC` → New: `500000 BTC` (or `₿500000`)
+- Old: `1.00000000 Bitcoin` → New: ₿100,000,000 (or 100,000,000 bitcoins)
+- Old: `0.00010000 Bitcoin` → New: `₿1,0000` (or `10,000 bitcoins`)
+- Old: `0.00500000 Bitcoin` → New: `₿500,000` (or `500,000 bitcoins`)
+- Old: `0.005 BTC` → New: `0.005 BTC` (or `₿500,000` or `500,000 bitcoins`)
 
 All formerly fractional representations now directly correspond to whole-number multiples of the smallest unit.
 
