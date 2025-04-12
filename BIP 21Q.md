@@ -1,10 +1,10 @@
-BIP: ?  
-Title: Redefinition of the Bitcoin Unit to the Base Denomination  
-Authors: John Carvalho <bitcoinerrorlog@gmail.com>  
-Status: Draft  
-Type: Informational  
-Created: 2024-12-10  
-License: CC0-1.0  
+BIP: ?
+Title: Redefinition of the Bitcoin Unit to the Base Denomination
+Authors: John Carvalho <bitcoinerrorlog@gmail.com>
+Status: Draft
+Type: Informational
+Created: 2024-12-10
+License: CC0-1.0
 
 # Abstract
 
@@ -32,7 +32,8 @@ By redefining the smallest unit as "one bitcoin," this BIP aligns user perceptio
 
 **Display and Formatting:**
 
-Applications have the choice between using the BTC currency code or bitcoin ₿, with 1 BTC = ₿100,000,000.
+- Applications SHOULD allow users to toggle between the legacy BTC format (1 BTC = 100,000,000 base units) and the new integral format (1 bitcoin = 1 base unit).
+- Use of the ₿ symbol MAY be used to represent base-unit bitcoins but is OPTIONAL.
 
 Example 1:
 
@@ -45,8 +46,11 @@ Example 2:
   - New display: `₿1,023,486,000` or `1,023,486,000 bitcoins` or `10.23486 BTC`
 
 Example 3:
+
   - Old display: `0.345 BTC`
   - New display: No changes required or `₿34,500,000` or `34,500,000 bitcoins`
+
+NOTE: Traditional number display abbreviations, like `2.5M` for millions, are also optional.
 
 **Conversion:**
 
@@ -56,7 +60,7 @@ Example 3:
 
 # Rationale
 
-**Usability**
+**Usability:**
 Integer-only displays simplify mental arithmetic and reduce potential confusion or user error.
 
 **Protocol Alignment:**
@@ -67,6 +71,9 @@ Presenting integers ensures newcomers do not mistakenly assume that Bitcoin’s 
 
 **Future-Proofing:**
 Adopting the smallest unit as the primary measure ensures a consistent standard that can scale smoothly as Bitcoin adoption grows.
+
+**Perception of Supply:**
+While the total count of base units is roughly 2.1 quadrillion, this proposal does not alter supply in any way. The change is purely representational. Comparisons can be drawn to other currencies like the Japanese yen or Indonesian rupiah, where high unit counts are standard and not perceived as inflationary.
 
 # Addressing Alternative Approaches
 
@@ -105,27 +112,26 @@ A short-term risk of confusion exists as users adapt to the new representation. 
 - Offer dual displays and tooltips during the transition.
 - Provide clear educational materials and coordinated messaging.
 - Use alerts or confirmations in applications if input values appear unexpectedly large or small.
-
-Over time, confusion will subside, leaving a simpler, more intuitive understanding of Bitcoin’s integral values.
+- Highlight the unchanging 21M BTC supply cap and equivalence to avoid misinterpretation as inflationary.
 
 # Reference Implementation
 
-Some wallets, such as Bitkit, have successfully adopted integer-only displays, demonstrating the feasibility of this approach. Transitional features—like showing both old and new formats side-by-side—can help smooth the transition.
+Some wallets, such as Bitkit, have successfully adopted integer-only displays, demonstrating the feasibility of this approach, without incident. Transitional features — like showing both old and new formats side-by-side — can help smooth the transition.
 
 # Test Vectors
 
 - Old: `1.00000000 Bitcoin` → New: ₿100,000,000 (or 100,000,000 bitcoins)
-- Old: `0.00010000 Bitcoin` → New: `₿1,0000` (or `10,000 bitcoins`)
-- Old: `0.00500000 Bitcoin` → New: `₿500,000` (or `500,000 bitcoins`)
-- Old: `0.005 BTC` → New: `0.005 BTC` (or `₿500,000` or `500,000 bitcoins`)
+- Old: `0.00010000 Bitcoin` → New: ₿10,000 (or 10,000 bitcoins)
+- Old: `0.00500000 Bitcoin` → New: ₿500,000 (or 500,000 bitcoins)
+- Old: `0.005 BTC` → New: `0.005 BTC` (or ₿500,000 or 500,000 bitcoins)
 
 All formerly fractional representations now directly correspond to whole-number multiples of the smallest unit.
 
 # Implementation Timeline
 
-**Phase 1 (3-6 months):** Introduce the concept, provide dual displays and educational materials.
+**Phase 1 (3-6 months):** Introduce the concept, provide dual displays and educational materials. Begin pilot testing in willing wallet apps.
 
-**Phase 2 (6-12 months):** Prominent services adopt integer-only displays by default.
+**Phase 2 (6-12 months):** Prominent services adopt integer-only displays by default. Community coordination and media campaigns ensure consistency.
 
 **Phase 3 (12+ months):** Integer representation becomes standard. Documentation and user guides no longer reference decimal-based formats.
 
