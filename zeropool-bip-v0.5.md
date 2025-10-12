@@ -3,7 +3,7 @@
 **Author:** John Carvalho (drafted w/ assistant)  
 **Type:** Standards Track (Policy)  
 **Layer:** P2P / Mempool / Mining Policy  
-**Status:** Draft (v0.5)  
+**Status:** Draft 
 **Created:** 2025-10-12  
 **Requires:** None (consensus-neutral)  
 **Informs (non-normative):** package relay, v3/anchor patterns, full-RBF network reality
@@ -267,12 +267,4 @@ All multi‑byte fields big‑endian. LSB of bitmap = vout 0.
 
 Thanks to reviewers and prior work on package relay, RBF, and Taproot annex design.
 
----
 
-## 18. Changelog
-
-- **v0.5 (2025‑10‑12):** Split spec by layer; added VERSION & FEATURE_BITS; normative MUST/SHOULD; PAYEE_BITMAP normative SD; IFB (anchor) detail; admission floor formula; limits & defaults; privacy modes clarified; test vectors; miner API appendix.  
-- **v0.4:** Formal SD spec w/ bitmap; miner API schema; annex TLV details; wallet guidance; SD test vectors.  
-- **v0.3:** Added PRIVATE_ONLY; clarified SD‑RBF post‑expiry; tightened package expectations.  
-- **v0.2:** Removed non‑0‑conf intent flags; added SD‑RBF concept; private‑first window.  
-- **v0.1:** Initial Zeropool draft (first‑seen + CPFP pre‑expiry).
